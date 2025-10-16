@@ -3,8 +3,8 @@ module Product::Notifications
 
   included do
     has_many :subscribers, dependent: :destroy
-    
-    # after_update_commit is an Active Record callback that is fired after changes are saved to the database. 
+
+    # after_update_commit is an Active Record callback that is fired after changes are saved to the database.
     after_update_commit :notify_subscribers, if: :back_in_stock?
   end
 
